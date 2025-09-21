@@ -1,6 +1,3 @@
-## Se estiver bagunçado é pq eu fiquei com preguiça de arrumar depois que terminei.
-## Falando isso desde o início pra pedir desculpas de antemão, professor. KKKKKKKKK.
-
 lista = []
 repetição = True
 while repetição:
@@ -11,19 +8,16 @@ while repetição:
 
     peso = (input("Digite seu peso: "))
     if peso == "parar":
-        lista.remove(lista[-1])
-        lista.remove(lista[-1])
-    if peso == "parar":
-        break
+        lista.remove(nome)
+        break        
     lista.append(peso)
 
     altura = (input("Digite sua altura: "))
     if altura == "parar":
-        lista.remove(lista[-1])
-        lista.remove(lista[-1])
-
-
-    if altura == "parar":
+        for j in range(0, len(lista), 1):
+            if j == len(lista) - 2:
+                lista.pop(j + 1)
+                lista.pop(j)
         break
     lista.append(altura)
 
@@ -32,11 +26,6 @@ while repetição:
 
     imc = peso / (altura * altura)
     lista.append(imc)
-
-    print(f"O IMC de {nome} é {imc:.2f}")
     
-
-
-
-
-print(lista)
+for i in range(0, len(lista), 4):
+    print(f"{lista[i]} tem IMC de {lista[i+3]}")
