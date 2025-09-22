@@ -1,6 +1,6 @@
 lista = []
 tipos = ["Baixo peso", "Peso normal", "Sobrepeso", "Obesidade grau 1", "Obesidade grau 2", "Obesidade grau 3"]
-
+idades = []
 def testador(coiso):
     if coiso < 18.5:
         return 0
@@ -19,6 +19,11 @@ while True:
     if nome == "parar":
         break
     lista.append(nome)
+
+    idade = input("Digite sua idade: ")
+    if idade == "parar":
+        break
+    idades.append(idade)
 
     peso = (input("Digite seu peso: "))
     if peso == "parar":
@@ -40,10 +45,13 @@ while True:
 
     imc = peso / (altura * altura)
     lista.append(imc)
+
 for l in range(0, len(lista), 4):
     if l == 0:
         qual_imc = testador(lista[3])
-        print(f"O IMC de {lista[l]} é {tipos[qual_imc]}")
+        print(f"Com {idades[l]} anos,")
+        print(f"o IMC de {lista[l]} é {tipos[qual_imc]}")
     else:
         qual_imc = testador(lista[l + 3])
-        print(f"O IMC de {lista[l]} é {tipos[qual_imc]}")
+        print(f"Com {idades[l-3]} anos,")
+        print(f"o IMC de {lista[l]} é {tipos[qual_imc]}")
